@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.dipa.sudoku",
+      "sha256_cert_fingerprints": [
+        "D1:F0:8A:4C:C3:77:9A:4D:E1:FB:C4:3B:2D:03:7B:F9:AA:B8:26:6A:A4:D4:6A:DC:64:C9:AF:37:4F:63:4A:8B"
+      ]
+    }
+  }
+]
