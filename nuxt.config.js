@@ -1,6 +1,13 @@
 export default {
   publicRuntimeConfig: {
-    baseUrl: process.env.BASE_URL
+    baseUrl: process.env.BASE_URL,
+    apiKey: process.env.FIREBASE_API_KEY,
+    authDomain: process.env.FIREBASE_AUTH_DOMAIN,
+    projectId: process.env.FIREBASE_PROJECT_ID,
+    storageBucket: process.env.FIREBASE_STORAGE_BUCKET,
+    messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID,
+    appId: process.env.FIREBASE_APP_ID,
+    measurementId: process.env.FIREBASE_MEASUREMENT_ID
   },
 
   // Target: https://go.nuxtjs.dev/config-target
@@ -56,6 +63,20 @@ export default {
     }
   },
 
+  // Sitemap module configuration: https://sitemap.nuxtjs.org/guide/configuration
+  sitemap: {
+    hostname: process.env.BASE_URL,
+    gzip: true,
+    routes() {
+      const { $content } = require('@nuxt/content')
+      return $content({ deep: true })
+        .only(['path'])
+        .fetch()
+        .then((files) =>
+          files.map((file) => (file.path === '/index' ? '/' : file.path))
+        )
+    }
+  },
   // Content module configuration: https://go.nuxtjs.dev/config-content
   content: {},
 
