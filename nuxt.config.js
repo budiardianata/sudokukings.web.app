@@ -63,6 +63,20 @@ export default {
     }
   },
 
+  // Sitemap module configuration: https://sitemap.nuxtjs.org/guide/configuration
+  sitemap: {
+    hostname: process.env.BASE_URL,
+    gzip: true,
+    routes() {
+      const { $content } = require('@nuxt/content')
+      return $content({ deep: true })
+        .only(['path'])
+        .fetch()
+        .then((files) =>
+          files.map((file) => (file.path === '/index' ? '/' : file.path))
+        )
+    }
+  },
   // Content module configuration: https://go.nuxtjs.dev/config-content
   content: {},
 
