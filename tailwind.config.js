@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+const defaultTheme = require('tailwindcss/defaultTheme')
 module.exports = {
   content: [
     'components/**/*.{vue,js}',
@@ -11,7 +12,11 @@ module.exports = {
     'nuxt.config.js'
   ],
   theme: {
-    extend: {}
+    extend: {
+      fontFamily: {
+        sans: ["'Quicksand'", ...defaultTheme.fontFamily.sans]
+      }
+    }
   },
-  plugins: []
+  plugins: [require('@tailwindcss/typography'), require('daisyui')]
 }
