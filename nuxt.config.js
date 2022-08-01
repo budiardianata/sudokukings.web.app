@@ -31,7 +31,17 @@ export default {
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: [],
+  css: ['~/assets/css/main'],
+
+  // Progress bar: https://nuxtjs.org/docs/2.x/features/loading/
+  loading: {
+    color: 'text-indigo-500'
+  },
+
+  router: {
+    // linkExactActiveClass: 'text-indigo-500',
+    linkActiveClass: 'text-indigo-500'
+  },
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [],
@@ -56,10 +66,23 @@ export default {
     '@nuxtjs/sitemap'
   ],
 
+  tailwindcss: {
+    config: {
+      content: ['content/**/**.md']
+    },
+    injectPosition: {
+      after: '~/assets/css/main'
+    }
+  },
+
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {
     manifest: {
       lang: 'en'
+    },
+    meta: {
+      name: 'Sudoku Kings',
+      description: 'Daily Sudoku Puzzle '
     }
   },
 

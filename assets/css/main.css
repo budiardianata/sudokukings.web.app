@@ -1,0 +1,33 @@
+@font-face {
+  font-family: 'Quicksand';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: local('Quicksand'),
+    url('~assets/fonts/Quicksand-Medium.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Gilroy Bold';
+  font-style: normal;
+  font-weight: bold;
+  font-display: swap;
+  src: local('Gilroy Bold'),
+    url('~assets/fonts/Gilroy-Bold.woff') format('woff');
+}
+
+.layout-enter-active,
+.layout-leave-active,
+.page-enter-active,
+.page-leave-active {
+  transition-property: opacity;
+  transition-timing-function: ease-in-out;
+  transition-duration: 500ms;
+}
+
+.layout-enter,
+.layout-leave-active,
+.page-enter,
+.page-leave-to {
+  opacity: 0;
+}
