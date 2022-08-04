@@ -3,7 +3,7 @@
     class="footer footer-center p-10 bg-base-200 text-base-content rounded"
   >
     <div>
-      <a href="/docs/install" class="btn lg:btn-lg gap-3">
+      <a href="https://playstore.com" class="btn lg:btn-lg gap-3">
         <svg viewBox="30 336.7 120.9 129.2" width="30">
           <path
             fill="#FFD400"

@@ -74,7 +74,7 @@
             class="btn gap-1 normal-case btn-ghost"
           >
             <Component
-              :is="'light'"
+              :is="'system'"
               class="inline-block h-5 w-5 stroke-current md:h-6 md:w-6"
             />
             <span class="hidden">Theme</span>
@@ -84,7 +84,12 @@
             class="dropdown-content menu p-2 shadow bg-base-200 rounded-box w-52"
           >
             <li v-for="(theme, index) in themes" :key="index">
-              <a role="button">
+              <a
+                role="button"
+                tabindex="0"
+                :data-set-theme="theme.id"
+                data-act-class="active"
+              >
                 <Component
                   :is="theme.id"
                   class="inline-block h-5 w-5 stroke-current md:h-6 md:w-6"
@@ -100,6 +105,8 @@
 </template>
 
 <script>
+import { themeChange } from 'theme-change'
+
 export default {
   props: {
     menus: {
@@ -124,8 +131,9 @@ export default {
     isHomepage() {
       return this.$route.path === '/'
     }
+  },
+  mounted() {
+    themeChange(false)
   }
 }
 </script>
-
-<style scoped></style>
