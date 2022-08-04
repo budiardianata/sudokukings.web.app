@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 const defaultTheme = require('tailwindcss/defaultTheme')
+const daisyTheme = require('daisyui/src/colors/themes')
 module.exports = {
   content: [
     'components/**/*.{vue,js}',
@@ -18,5 +19,28 @@ module.exports = {
       }
     }
   },
-  plugins: [require('@tailwindcss/typography'), require('daisyui')]
+  plugins: [require('@tailwindcss/typography'), require('daisyui')],
+  daisyui: {
+    themes: [
+      {
+        light: {
+          ...daisyTheme['[data-theme=cupcake]']
+        }
+      },
+      {
+        dark: {
+          // ...daisyTheme['[data-theme=night]'],
+          primary: '#b26c1c',
+          secondary: '#ff26e2',
+          accent: '#fc53f9',
+          neutral: '#2B1D2F',
+          'base-100': '#463C5D',
+          info: '#79B5D7',
+          success: '#59DEBD',
+          warning: '#AB7A07',
+          error: '#F35868'
+        }
+      }
+    ]
+  }
 }

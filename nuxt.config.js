@@ -35,12 +35,21 @@ export default {
 
   // Progress bar: https://nuxtjs.org/docs/2.x/features/loading/
   loading: {
-    color: 'text-indigo-500'
+    color: '#b26c1c',
+    height: '2px',
+    throttle: 0
   },
 
   router: {
+    // base: (process.env.BASE_URL) ? process.env.BASE_URL : '/',
     // linkExactActiveClass: 'text-indigo-500',
-    linkActiveClass: 'text-indigo-500'
+    linkActiveClass: 'text-primary'
+  },
+
+  colorMode: {
+    preference: 'system', // default theme
+    dataValue: 'theme', // activate data-theme in <html> tag
+    classSuffix: ''
   },
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
