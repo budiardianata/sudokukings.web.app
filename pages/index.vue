@@ -89,10 +89,10 @@
             <PlayButton :to="data.app_store_url" />
           </div>
         </div>
-        <div>
+        <div class="flex-1 flex justify-center">
           <img
             class="aspect-square w-40 md:w-56 object-contain hover:object-scale-down"
-            :src="data.app_icon"
+            src="/icon.png"
             :alt="data.app_name"
           />
         </div>
@@ -106,7 +106,7 @@
       >
         <!--        mockup-phone-->
         <div
-          v-for="(screenshot, index) in data.app_screenshot"
+          v-for="(screenshot, index) in screenshots"
           :key="index"
           class="mockup-phone col-span-3 row-span-3 mx-2 grid w-72 flex-shrink-0 place-items-center items-center gap-4 p-4 py-8 xl:mx-0 xl:w-full"
         >
@@ -126,12 +126,19 @@
 </template>
 
 <script>
+import { getDownloadURL, ref, listAll } from 'firebase/storage'
+
 export default {
   name: 'IndexPage',
   async asyncData({ $content }) {
     const data = await $content('/index').fetch()
     return {
       data
+    }
+  },
+  data() {
+    return {
+      screenshots: []
     }
   },
   head() {
@@ -212,10 +219,17 @@ export default {
         hid: 'og:image',
         name: 'og:image',
         property: 'og:image',
-        content: this.data.image
+        content: this.data.app_icon
       })
     }
     return head
+  },
+  async mounted() {
+    const listRef = ref(this.$fire.storage, 'screenshot')
+    const list = await listAll(listRef)
+    for (const itemRef of list.items) {
+      this.screenshots.push(await getDownloadURL(itemRef))
+    }
   }
 }
 </script>
