@@ -7,11 +7,14 @@ export default {
     storageBucket: process.env.FIREBASE_STORAGE_BUCKET,
     messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID,
     appId: process.env.FIREBASE_APP_ID,
-    measurementId: process.env.FIREBASE_MEASUREMENT_ID
+    measurementId: process.env.FIREBASE_MEASUREMENT_ID,
+    recaptchaKey: process.env.FIREBASE_RECAPTCHA_KEY
   },
 
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
+
+  generate: { fallback: true },
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -31,10 +34,23 @@ export default {
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: [],
+  css: ['~/assets/css/main'],
+
+  // Progress bar: https://nuxtjs.org/docs/2.x/features/loading/
+  loading: {
+    color: '#b26c1c',
+    height: '2px',
+    throttle: 0
+  },
+
+  router: {
+    // base: (process.env.BASE_URL) ? process.env.BASE_URL : '/',
+    // linkExactActiveClass: 'text-indigo-500',
+    linkActiveClass: 'text-primary'
+  },
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [],
+  plugins: [{ src: '~/plugins/firebase', mode: 'client' }],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -56,10 +72,23 @@ export default {
     '@nuxtjs/sitemap'
   ],
 
+  tailwindcss: {
+    config: {
+      content: ['content/**/**.md']
+    },
+    injectPosition: {
+      after: '~/assets/css/main'
+    }
+  },
+
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {
     manifest: {
       lang: 'en'
+    },
+    meta: {
+      name: 'Sudoku Kings',
+      description: 'Daily Sudoku Puzzle '
     }
   },
 

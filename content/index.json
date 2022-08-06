@@ -1,0 +1,13 @@
+{
+  "app_name": "Sudoku Kings",
+  "app_description": "Lightweight Sudoku game for Android",
+  "app_highlight": [
+    "Instant App Support",
+    "Multi Sudoku variants [Mini, Classic and Maxi]",
+    "Multi Level Game Play",
+    "Customizable and themeable"
+  ],
+  "app_store_url": "https://play.google.com/store/apps/details?id=com.dipa.sudoku",
+  "store_url": "https://play.google.com/store/apps/details?id=com.dipa.sudoku",
+  "image": "https://app-tailwind.preview.uideck.com/images/hero/hero-image-2.svg"
+}

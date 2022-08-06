@@ -1,5 +1,7 @@
 import { initializeApp } from 'firebase/app'
-import { getStorage, ref } from 'firebase/storage'
+import { getStorage } from 'firebase/storage'
+import { initializeAppCheck, ReCaptchaV3Provider } from 'firebase/app-check'
+
 export default (
   {
     $config: {
@@ -9,7 +11,8 @@ export default (
       storageBucket,
       messagingSenderId,
       appId,
-      measurementId
+      measurementId,
+      recaptchaKey
     }
   },
   inject
@@ -24,6 +27,10 @@ export default (
     measurementId
   }
   const app = initializeApp(firebaseConfig)
+  initializeAppCheck(app, {
+    provider: new ReCaptchaV3Provider(recaptchaKey),
+    isTokenAutoRefreshEnabled: true
+  })
   const storage = getStorage(app)
-  inject('fire', { storage, ref })
+  inject('fire', { storage })
 }
