@@ -7,11 +7,14 @@ export default {
     storageBucket: process.env.FIREBASE_STORAGE_BUCKET,
     messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID,
     appId: process.env.FIREBASE_APP_ID,
-    measurementId: process.env.FIREBASE_MEASUREMENT_ID
+    measurementId: process.env.FIREBASE_MEASUREMENT_ID,
+    recaptchaKey: process.env.FIREBASE_RECAPTCHA_KEY
   },
 
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
+
+  generate: { fallback: true },
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -46,14 +49,8 @@ export default {
     linkActiveClass: 'text-primary'
   },
 
-  colorMode: {
-    preference: 'system', // default theme
-    dataValue: 'theme', // activate data-theme in <html> tag
-    classSuffix: ''
-  },
-
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: ['~/plugins/firebase'],
+  plugins: [{ src: '~/plugins/firebase', mode: 'client' }],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
