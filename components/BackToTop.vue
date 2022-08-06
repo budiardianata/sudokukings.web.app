@@ -1,25 +1,21 @@
 <template>
   <button
     v-show="showButton && !isHomepage"
-    class="fixed z-10 p-3 bg-primary text-white rounded-full shadow-md bottom-10 right-10 animate-bounce transition-opacity duration-300 ease-in-out"
+    class="fixed z-10 p-3 bg-primary text-primary-content rounded-full shadow-md bottom-10 right-10 animate-bounce transition-opacity duration-300 ease-in-out"
+    type="button"
     aria-label="Scroll To top"
     @click="toggleScroll"
   >
-    <p class="sr-only">Scroll To Top</p>
+    <span class="sr-only">Scroll To Top</span>
     <svg
-      width="20"
-      height="20"
+      width="48"
+      height="48"
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
-      viewBox="0 0 24 24"
-      class="inline-block h-6 w-6 stroke-current"
+      viewBox="0 0 48 48"
+      class="inline-block h-6 w-6 fill-current"
     >
-      <path
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="2"
-        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-      ></path>
+      <path d="M14.15 30.75 12 28.6l12-12 12 11.95-2.15 2.15L24 20.85Z" />
     </svg>
   </button>
 </template>
